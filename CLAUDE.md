@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Workflow
 
-**MANDATORY: Follow this iterative development process for ALL tasks:**
+**MANDATORY: Follow this iterative development process for ALL tasks (including UI-only changes):**
 
 ### Pre-Development Setup
 - Verify current tests pass: `npm run test` (dev server will start automatically if needed)
@@ -29,9 +29,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    - Include happy path, error cases, and edge cases
    - Add accessibility checks where relevant
    - Use descriptive test names and organize in logical test files
+   - Never assert styling like classes. Focus on interactions and behavior
+   - Never assert visibility unless it is to make sure that a component is rendered when testing interactions
+   - **IMPORTANT**: UI-only changes still require tests, if the parts are not covered by other tests
 
 5. **Validate implementation**
-   - Run the new test only: `npm run test -- --grep "specific-test-name"`
+   - Run the relevant tests only: `npm run test -- --grep "specific-test-name"`
    - Fix any issues before proceeding
 
 6. **Clean up test state**
