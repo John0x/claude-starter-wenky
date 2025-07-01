@@ -57,5 +57,5 @@ Components are configured with:
 
 **Fallbacks**:
 - `npm run lint` - ESLint validation for code quality (30 seconds)
-- `npm run build` - Next.js build validation for TypeScript and compilation errors (1-2 minutes)
+- `npm run build` - Next.js build validation for TypeScript and compilation errors (1-2 minutes). This runs lint automatically as well.
 - `npm run dev` - Manual browser testing at http://localhost:3000 when automated tests are impractical
