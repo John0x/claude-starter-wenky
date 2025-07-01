@@ -50,3 +50,12 @@ Components are configured with:
 - Base URL: http://localhost:3000
 - Auto-starts dev server if not running, reuses existing server if available
 - 2-minute timeout for server startup
+
+## Validation
+
+**Primary command**: `npm run test` - Runs Playwright end-to-end tests across all browsers. This validates the application functionality and catches both UI and integration issues. Expected duration: ~2-3 minutes including dev server startup.
+
+**Fallbacks**:
+- `npm run lint` - ESLint validation for code quality (30 seconds)
+- `npm run build` - Next.js build validation for TypeScript and compilation errors (1-2 minutes)
+- `npm run dev` - Manual browser testing at http://localhost:3000 when automated tests are impractical
