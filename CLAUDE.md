@@ -51,11 +51,26 @@ Components are configured with:
 - Auto-starts dev server if not running, reuses existing server if available
 - 2-minute timeout for server startup
 
-## Validation
+## Workflow
 
-**Primary command**: `npm run test` - Runs Playwright end-to-end tests across all browsers. This validates the application functionality and catches both UI and integration issues. Expected duration: ~2-3 minutes including dev server startup.
+Follow this iterative workflow when implementing features or fixes:
 
-**Fallbacks**:
-- `npm run lint` - ESLint validation for code quality (30 seconds)
-- `npm run build` - Next.js build validation for TypeScript and compilation errors (1-2 minutes). This runs lint automatically as well.
-- `npm run dev` - Manual browser testing at http://localhost:3000 when automated tests are impractical
+### 1. Planning
+- Break down tasks into small, manageable chunks
+- Identify what functionality needs testing
+- Plan implementation approach
+
+### 2. Implementation (per chunk)
+- Implement one small piece of functionality
+- Run quick validation after each chunk:
+  1. `npm run lint` - Check code style and basic issues
+  2. `npm run build` - Verify TypeScript compilation and catch build errors
+  3. Write tests if functionality isn't covered (required for user-facing features)
+  4. Run relevant tests with `npm run test -- --grep="test-name"`
+
+### 3. Final Validation (after complete task)
+- Run full test suite: `npm run test`
+- Ensure all tests pass and application builds successfully
+- Verify functionality works in browser if UI changes were made
+
+**Important**: Always write meaningful tests from a user perspective. Test actual interactions and workflows, not just component visibility. Use Playwright's user-centric approach (clicking, typing, navigating) rather than implementation details.
