@@ -39,3 +39,5 @@ Your final output should consist of:
 2. A question asking the user to confirm the plan
 
 Do not include any other text or explanations in your final output.
+
+STOP. ASK THE USER TO CONFIRM THE PLAN OR CHANGE THE PLAN.
