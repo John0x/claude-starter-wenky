@@ -9,30 +9,26 @@ First, check if CLAUDE.md exists in the project root. If it doesn't exist, stop 
 If the file exists, read it to get an overview of the project.
 
 # 2. Validation Strategy
-Determine the validation strategy for the project. The Code Agent should work iteratively, so the validation strategy should be quick to run.
-Sort the validation strategies from quickest to most comprehensive.
+For the agent to be able to work iteratively, it needs a good validation strategy, which is comprehensive but quick to run. In order to accomplish that, the agent should validate implementations starting with the quickest validation steps and then gradually increase the scope of the validation, as long as it passes.
 
-If there is no tooling for validation, you should make an educated suggestion and add them to the project, AFTER asking the user for confirmation or input. Think about the solution first.
+Determine the validation strategy for the project based on the following scenarios.
 
-Hints:
-- NextJs build command automatically runs lint
-- Don't write bullshit tests like only asserting visibility of a component. Write tests from a user perspective. Like interacting with elements.
+## Web App
 
-# 3. Workflow
-Add a new section to CLAUDE.md titled "## Workflow".
-It should describe an iterative workflow based on the validation strategy you selected.
-Usually the code agent will divide instructions into smaller chunks and then work on them in order. It should run quick validation steps after each chunk. And then run the full validation suite after the whole task is done.
+The most important validation method are realistic e2e tests. They should be written from a user perspective and focus on interactions. **NEVER** write bullshit tests like only asserting visibility of a component.
 
-Example workflow for a web app:
-1. Planning
-2. Implementation of small chunk
-3. Validate small chunk (repeat for all chunks)
-   1. Run lint
-   2. If the functionality is not covered by tests, write tests
-   3. Run relevant tests
-4. Finished complete task
-   1. Run full validation suite
+Validation steps (sorted from quickest to most comprehensive):
 
-Highlight the importance of tests, because the agent likes to avoid them otherwise.
+- linting
+- running specific tests only (small scope, only whatever is relevant to the change)
+- type checking
+
+Only run once all tasks are complete:
+- build
+- complete test suite
+
+Notes:
+- If a test fails that is not part of the current task, **STOP** and ask the user for guidance. Do NOT auto-fix blindly.
+- The agent should **ALWAYS** write tests for new functionality - this is required for validation.
 
 STOP HERE. Ask the user for confirmation or input and ONLY THEN update CLAUDE.md

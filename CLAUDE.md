@@ -8,6 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run build` - Build production application
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
+- `npm run typecheck` - Run TypeScript type checking
 - `npm run test` - Run Playwright end-to-end tests
 
 ## Architecture
@@ -51,26 +52,23 @@ Components are configured with:
 - Auto-starts dev server if not running, reuses existing server if available
 - 2-minute timeout for server startup
 
-## Workflow
+## Validation Strategy
 
-Follow this iterative workflow when implementing features or fixes:
+**ALWAYS** work iteratively and validate your work after finishing each task by following these steps in order:
 
-### 1. Planning
-- Break down tasks into small, manageable chunks
-- Identify what functionality needs testing
-- Plan implementation approach
+### Quick Validation Steps (run for each task)
+1. **Linting**: `npm run lint` - Check for syntax and style issues
+2. **Specific tests**: Run only relevant Playwright tests for changed functionality
+3. **Type checking**: `npm run typecheck` - Ensure TypeScript correctness
 
-### 2. Implementation (per chunk)
-- Implement one small piece of functionality
-- Run quick validation after each chunk:
-  1. `npm run lint` - Check code style and basic issues
-  2. `npm run build` - Verify TypeScript compilation and catch build errors
-  3. Write tests if functionality isn't covered (required for user-facing features)
-  4. Run relevant tests with `npm run test -- --grep="test-name"`
+### Complete Validation (run only after all tasks are complete)
+4. **Build**: `npm run build` - Full production build verification
+5. **Complete test suite**: `npm run test` - All Playwright end-to-end tests
 
-### 3. Final Validation (after complete task)
-- Run full test suite: `npm run test`
-- Ensure all tests pass and application builds successfully
-- Verify functionality works in browser if UI changes were made
-
-**Important**: Always write meaningful tests from a user perspective. Test actual interactions and workflows, not just component visibility. Use Playwright's user-centric approach (clicking, typing, navigating) rather than implementation details.
+### Testing Guidelines
+- **ALWAYS** write tests for new functionality - this is required for validation
+- Write realistic e2e tests from a user perspective focusing on actual interactions
+- **NEVER** write trivial tests that only assert component visibility
+- Focus on meaningful user workflows and business logic
+- If existing tests fail that are not part of the current task, **STOP** and ask for guidance
+- Do NOT auto-fix unrelated test failures
