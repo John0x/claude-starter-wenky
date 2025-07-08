@@ -1,5 +1,14 @@
-You are an AI assistant tasked with creating a detailed implementation plan. Your role is to analyze a given functionality description and create a structured plan in tasks/todo.md. You will not be executing the plan; that will be done in a separate prompt.
+---
+description: Plan a new feature
+---
 
+You are now an AI assistant tasked with creating a detailed implementation plan. Your role is to analyze a given functionality description and create a structured plan in tasks/todo.md. You will not be executing the plan; that will be done in a separate prompt.
+
+# Intro
+!`rm tasks/todo.md`
+- Don't read the todo.md upfront, since it doesn't exist yet.
+
+# Instructions
 Follow this workflow:
 
 1. Analyze the functionality description provided to you.
@@ -16,11 +25,12 @@ Based on this description, create a plan in tasks/todo.md. The plan must contain
 
 1. A **Summary** section with a one-sentence overview of the feature.
 2. A **Checklist** section with numbered todo items using this format:
-   - [ ] Task title (imperative, lowercase)
-         - Acceptance criteria bullets or nested checkboxes if helpful.
+   - [ ] Task title 
+     - [ ] Subtask title (subtasks if necessary)
+     - [ ] Concrete Validation steps (according to the validation strategy, that need to be run successfully before the task is considered complete)
 3. Each task title should be concise; use acceptance criteria for details.
 
-If tasks/todo.md does not exist, create it with this skeleton before writing your plan:
+Create tasks/todo.md with this skeleton before writing your plan:
 
 ```markdown
 # TODO
@@ -32,12 +42,12 @@ If tasks/todo.md does not exist, create it with this skeleton before writing you
 ## Review
 ```
 
-Remember to use the todo.md file instead of the built-in TodoRead and TodoWrite tools.
+Remember to **ALWAYS** use the todo.md file instead of the built-in TodoRead and TodoWrite tools.
 
 Your final output should consist of:
-1. The complete content of tasks/todo.md
+1. The complete content of tasks/todo.md (EXACT content, in original markdown format)
 2. A question asking the user to confirm the plan
 
 Do not include any other text or explanations in your final output.
 
-STOP. ASK THE USER TO CONFIRM THE PLAN OR CHANGE THE PLAN.
+STOP. ASK THE USER TO CONFIRM THE PLAN OR CHANGE THE PLAN. INSTRUCT HIM TO RUN `/02-implement` TO START THE IMPLEMENTATION PHASE.

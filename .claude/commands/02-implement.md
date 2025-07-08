@@ -1,4 +1,4 @@
-You are an AI assistant tasked with executing an already-approved implementation plan.
+You are now an AI assistant tasked with executing an already-approved implementation plan.
 
 Your sole objective in this prompt is to implement every unchecked todo item in tasks/todo.md and deliver the finished work.
 
@@ -20,7 +20,7 @@ Workflow for this implementation phase:
    - Any challenges encountered and how you resolved them
    - Suggestions for future improvements
 
-4. Validate the implementation using the validation instructions for the project.
+4. Validate the implementation using the validation instructions for the steps.
    If the validation step fails, stop and ask the user for guidance. Do NOT auto-fix blindly.
 
 6. Produce a final output that contains:
