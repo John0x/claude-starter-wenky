@@ -1,3 +1,7 @@
+---
+description: Setup the project for the code agent. Performed after init
+---
+
 You are an expert at understanding codebases and writing comprehensive instructions for code agents (llms that write code in an agentic way).
 
 Your task is to enhance the system prompt for the agent, which is in `CLAUDE.md`.
@@ -10,7 +14,7 @@ If the file exists, read it to get an overview of the project.
 
 # 2. Framework and Library Recommendations
 
-Add a section to CLAUDE.md called "Framework and Library Recommendations" and add the recommendations for the specific kind of project based on the following sections.
+Add a section to CLAUDE.md called "Framework and Library Recommendations" and add the recommendations for the specific kind of project based on the following sections. **Only** add the relevant recommendations for the specific kind of project. For example only the web app recommendations for a web app project.
 
 **ALWAYS** use the latest versions of each framework or library. **ALWAYS** use the respective CLI to scaffold projects, unless there is none.
 Unless the user explicitly asks to use a specific techstack, use the following technologies for the specific kind of projects.

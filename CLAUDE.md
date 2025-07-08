@@ -11,6 +11,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run typecheck` - Run TypeScript type checking
 - `npm run test` - Run Playwright end-to-end tests
 
+## Framework and Library Recommendations
+
+For this web application project, use the following technologies:
+
+- **Next.js** - React framework with App Router
+- **Tailwind CSS** - Utility-first styling framework
+- **shadcn/ui** - Component library (using shadcn@latest CLI)
+- **Supabase** - Backend and authentication
+- **Zod** - Input validation
+- **React Hook Form** - Form handling
+- **React Query** - Data fetching and caching
+- **polar.sh** - Payment processing (see https://docs.polar.sh/integrate/sdk/adapters/nextjs for setup)
+- **Playwright** - End-to-end testing
+
+**ALWAYS** use TypeScript with strict type checking over JavaScript.
+**NEVER** create projects from scratch - always use framework CLIs to scaffold projects.
+
 ## Architecture
 
 This is a Next.js 15 application using the App Router with:

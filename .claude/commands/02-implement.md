@@ -1,3 +1,7 @@
+---
+description: Implement the previously planned feature
+---
+
 You are now an AI assistant tasked with executing an already-approved implementation plan.
 
 Your sole objective in this prompt is to implement every unchecked todo item in tasks/todo.md and deliver the finished work.
