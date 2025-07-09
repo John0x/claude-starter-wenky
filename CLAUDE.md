@@ -1,5 +1,29 @@
 # CLAUDE.md
 
+## 🚀 BOILERPLATE NOTICE
+
+**This is a boilerplate repository for getting started with Claude Code projects.**
+
+### Initial Setup Instructions for Claude
+
+When the user first starts working with this repository, you MUST:
+
+1. **Ask the user for project information**, especially:
+   - Project name (required)
+   - Brief description of what they're building
+   - Any specific requirements or constraints
+   - Target audience or use case
+
+2. **Once the user provides the project name**, you MUST:
+   - Update the title of this CLAUDE.md file to reflect the actual project name
+   - Replace this entire "BOILERPLATE NOTICE" section with a project-specific description
+   - Update any generic references throughout this codebase to use the actual project name
+   - Update the README.md file if it exists to reflect the actual project
+
+3. **Do not proceed with development tasks** until you have gathered this information and updated the documentation accordingly.
+
+---
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Development Commands
@@ -15,15 +39,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 For this web application project, use the following technologies:
 
-- **Next.js** - React framework with App Router
-- **Tailwind CSS** - Utility-first styling framework
-- **shadcn/ui** - Component library (using shadcn@latest CLI)
-- **Supabase** - Backend and authentication
-- **Zod** - Input validation
-- **React Hook Form** - Form handling
-- **React Query** - Data fetching and caching
-- **polar.sh** - Payment processing (see https://docs.polar.sh/integrate/sdk/adapters/nextjs for setup)
-- **Playwright** - End-to-end testing
+- Next.js - React framework with App Router
+- Tailwind CSS - Utility-first styling framework
+- shadcn/ui - Component library (using shadcn@latest CLI)
+- Supabase - Backend and authentication
+- Zod - Input validation
+- React Hook Form - Form handling
+- React Query - Data fetching and caching
+- polar.sh - Payment processing (see https://docs.polar.sh/integrate/sdk/adapters/nextjs for setup)
+- Playwright - End-to-end testing
 
 **ALWAYS** use TypeScript with strict type checking over JavaScript.
 **NEVER** create projects from scratch - always use framework CLIs to scaffold projects.
@@ -32,17 +56,17 @@ For this web application project, use the following technologies:
 
 This is a Next.js 15 application using the App Router with:
 
-- **Framework**: Next.js 15 with React 19
-- **Styling**: Tailwind CSS 4 with custom CSS variables
-- **UI Components**: shadcn/ui components in "new-york" style with Radix primitives
-- **Testing**: Playwright for end-to-end testing
-- **Fonts**: Geist Sans and Geist Mono from Google Fonts
-- **Charts**: Recharts for data visualization
-- **Theme**: next-themes for dark/light mode support
-- **Notifications**: Sonner for toast notifications
-- **Backend**: Supabase integration configured
-- **Forms**: React Hook Form with Zod validation
-- **Additional Libraries**: Embla Carousel, Command Menu (cmdk), Date handling (date-fns)
+- Framework: Next.js 15 with React 19
+- Styling: Tailwind CSS 4 with custom CSS variables
+- UI Components: shadcn/ui components in "new-york" style with Radix primitives
+- Testing: Playwright for end-to-end testing
+- Fonts: Geist Sans and Geist Mono from Google Fonts
+- Charts: Recharts for data visualization
+- Theme: next-themes for dark/light mode support
+- Notifications: Sonner for toast notifications
+- Backend: Supabase integration configured
+- Forms: React Hook Form with Zod validation
+- Additional Libraries: Embla Carousel, Command Menu (cmdk), Date handling (date-fns)
 
 ### Project Structure
 
@@ -75,8 +99,8 @@ Components are configured with:
 
 ### Quick Validation Steps (run for each task)
 1. **Linting**: `npm run lint` - Check for syntax and style issues
-2. **Specific tests**: Run only relevant Playwright tests for changed functionality
-3. **Type checking**: `npm run typecheck` - Ensure TypeScript correctness
+2. **Type checking**: `npm run typecheck` - Ensure TypeScript correctness    
+3. **Specific tests**: Run only relevant Playwright tests for changed functionality. If you implemented new functionality, write tests for it and run them.
 
 ### Complete Validation (run only after all tasks are complete)
 4. **Build**: `npm run build` - Full production build verification
@@ -89,3 +113,7 @@ Components are configured with:
 - Focus on meaningful user workflows and business logic
 - If existing tests fail that are not part of the current task, **STOP** and ask for guidance
 - Do NOT auto-fix unrelated test failures
+- If tests fail without a clear reason, use playwright mcp to debug the test in a real browser
+
+# General
+- Don't add any components that are not part of the shadcn library to components/ui
